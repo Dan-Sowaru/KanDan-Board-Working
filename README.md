@@ -1,4 +1,4 @@
-# [KanDan - KanBan Board]
+# KanDan - KanBan Board
 
 <br>
 
@@ -15,13 +15,13 @@
 
 Tecnologias usadas na execução do projeto:
 
-- [Angular]
-- [Bootstrap]
-- [JavaScript]
-- [HTML5]
-- [CSS]
-- [TypeScript]
-- [Node.js]
+- Angular
+- Bootstrap
+- JavaScript
+- HTML5
+- CSS
+- TypeScript
+- Node.js
 
   <br>
 
