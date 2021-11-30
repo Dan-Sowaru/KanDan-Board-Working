@@ -1,60 +1,51 @@
-<div *ngIf="card.lista == column" class="card card-flyer my-1">
-  <div
-    class="
-      card-header
-      align-items-center
-      text-center
-      d-flex
-      justify-content-between
-      bg-secondary bg-opacity-75
-      text-light
-      p-1
-    "
-  >
+<div *ngIf="card.lista == column" class="card" id="card-body" [ngStyle]="{backgroundColor: getBackgroundColor()}">
+  <div class="
+  d-flex
+  
+  p-1">
     <input
+      [readonly]="!editMode"
       class="form-control"
       type="text"
-      placeholder="Title"
-      [(ngModel)]="title"
-      [readonly]="!editMode"
+      placeholder="Título da tarefa"
+      [(ngModel)]="titulo"
     />
-    <a (click)="toggleEditMode()" class="btn btn-primary" *ngIf="!editMode">
+    <a (click)="toggleEditMode()" class="btn" *ngIf="!editMode">
       <i class="fas fa-edit"></i>
     </a>
   </div>
-  <div class="card-body p-1 bg-secondary bg-opacity-75">
+  <div class="p-1 bg-opacity-75">
     <textarea
-      class="form-control"
-      placeholder="Description"
       [readonly]="!editMode"
-      [(ngModel)]="description"
-      >{{ description }}</textarea
+      class="form-control"
+      placeholder="Descrição da tarefa"
+      [(ngModel)]="conteudo"
+      >{{ conteudo }}</textarea
     >
   </div>
 
   <div
     class="
-      card-footer
       d-flex
       justify-content-between
-      bg-secondary bg-opacity-75
+      bg-opacity-75
       p-1
     "
     *ngIf="!editMode"
   >
     <a
-      class="btn btn-warning text-light"
+      class="btn"
       (click)="moveCardLeft()"
       [ngClass]="atFirstColumn ? 'invisible' : 'visible'"
     >
       <i class="fas fa-arrow-alt-circle-left"></i>
     </a>
-    <a class="btn btn-danger" (click)="deleteCard()">
+    <a class="btn" (click)="deleteCard()">
       <i class="fas fa-trash-alt"></i>
     </a>
     <a
       [ngClass]="card.id == '' ? 'invisible' : 'visible'"
-      class="btn btn-warning text-light"
+      class="btn"
       (click)="moveCardRight()"
       [ngClass]="atLastColumn ? 'invisible' : 'visible'"
     >
@@ -64,19 +55,31 @@
 
   <div
     class="
-      card-footer
+      
       d-flex
       justify-content-between
-      bg-secondary bg-opacity-75
+      bg-opacity-75
       p-1
     "
     *ngIf="editMode"
   >
-    <a (click)="cancelEdit()" class="btn btn-danger">
+    <a (click)="cancelEdit()" class="btn">
       <i class="fas fa-ban"></i>
     </a>
-    <a (click)="saveCard()" class="btn btn-success">
+    <a (click)="saveCard()" class="btn">
       <i class="fas fa-save"></i>
     </a>
   </div>
 </div>
+
+<!-- card -->
+<!--  class="
+      card-header
+      align-items-center
+      text-center
+      d-flex
+      justify-content-between
+      bg-secondary bg-opacity-75
+      text-light
+      p-1
+    " -->

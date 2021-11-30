@@ -9,25 +9,25 @@ import { Form, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  
   accessForm!: FormGroup;
-  loginDenied: boolean = false;
-
   constructor(
     private api: APIService,
     private router: Router,
-  ) {}
-
-  ngOnInit(): void {
-    this.accessForm = new FormGroup({
-      login: new FormControl(null),
-      senha: new FormControl(null),
-    });
-  }
-
-  onSubmit(): void {
-    this.login();
-  }
-
+    ) {}
+    
+    ngOnInit(): void {
+      this.accessForm = new FormGroup({
+        login: new FormControl(null),
+        senha: new FormControl(null),
+      });
+    }
+    
+    onSubmit(): void {
+      this.login();
+    }
+    
+  loginDenied: boolean = false;
   login(): void {
     this.api
       .getAuthorizationToken(
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       .subscribe((token) => {
         if (token) {
           this.api.setAuth(token);
-          this.router.navigateByUrl('/kanban');
+          this.router.navigateByUrl('/kanban-board');
           this.loginDenied = false;
         } else {
           this.loginDenied = true;

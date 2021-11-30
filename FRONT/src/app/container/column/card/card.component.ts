@@ -18,8 +18,8 @@ export class CardComponent implements OnInit {
   atLastColumn?: boolean;
 
   id: string = '';
-  title: string = '';
-  description: string = '';
+  titulo: string = '';
+  conteudo: string = '';
   lista: string = '';
 
   editMode: boolean = false;
@@ -36,8 +36,8 @@ export class CardComponent implements OnInit {
       this.cols.indexOf(this.card.lista) == this.cols.length - 1;
 
     this.id = this.card.id;
-    this.title = this.card.titulo;
-    this.description = this.card.conteudo;
+    this.titulo = this.card.titulo;
+    this.conteudo = this.card.conteudo;
     this.lista = this.card.lista;
 
     if (!this.id) {
@@ -58,8 +58,8 @@ export class CardComponent implements OnInit {
     this.api
       .changeCardById(
         this.card.id,
-        this.title,
-        this.description,
+        this.titulo,
+        this.conteudo,
         this.card.lista
       )
       .subscribe((card) => {
@@ -76,8 +76,8 @@ export class CardComponent implements OnInit {
     this.api
       .changeCardById(
         this.card.id,
-        this.title,
-        this.description,
+        this.titulo,
+        this.conteudo,
         this.card.lista
       )
       .subscribe((card) => {
@@ -88,13 +88,13 @@ export class CardComponent implements OnInit {
   saveCard() {
     if (this.card.id) {
       this.api
-        .changeCardById(this.card.id, this.title, this.description, this.lista)
+        .changeCardById(this.card.id, this.titulo, this.conteudo, this.lista)
         .subscribe((card) => {
           // this.card = card;
         });
     } else {
       this.api
-        .createNewCard(this.title, this.description, this.lista)
+        .createNewCard(this.titulo, this.conteudo, this.lista)
         .subscribe((card) => {
           this.api.cardsChanged.next(card);
         });
@@ -103,8 +103,8 @@ export class CardComponent implements OnInit {
   }
 
   cancelEdit() {
-    this.title = this.card.titulo;
-    this.description = this.card.conteudo;
+    this.titulo = this.card.titulo;
+    this.conteudo = this.card.conteudo;
     this.lista = this.card.lista;
     this.toggleEditMode();
   }
@@ -114,4 +114,29 @@ export class CardComponent implements OnInit {
       this.api.cardsChanged.next(card);
     });
   }
+
+
+  
+    getBackgroundColor() {
+      switch (this.lista) {
+       
+        case "ToDo": {
+          return "rgb(255, 240, 240)";
+  
+        }
+  
+        case "Doing": {
+          return "rgb(255, 255, 240)";
+        }
+  
+        case "Done": {
+          return "rgb(240, 255, 255)";
+        }
+  
+        default: {
+          return "white";
+        }
+      }
+    }
+  
 }
