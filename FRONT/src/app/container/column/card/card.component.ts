@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
-import { COLUMNS } from 'src/app/models/columns';
+import { columns } from 'src/app/models/columns';
 import { APIService } from 'src/app/services/api.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
   @Input() card!: Card;
   @Output() cardChanged = new EventEmitter<Card[]>();
 
-  cols = COLUMNS;
+  cols = columns;
   atFirstColumn?: boolean;
   atLastColumn?: boolean;
 

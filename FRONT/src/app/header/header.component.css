@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #678983;
+}
+
+.navbar-brand {
+  color: #f0e9d2;
+  font-size: 300%;
+}
+
+#update-button {
+  border: 1px solid;
+  border-color: #181d31;
+  background-color: #f0e9d2;
+}
+
+color-palette {
+  color: #f0e9d2;
+  color: #e6ddc4;
+  color: #678983;
+  color: #181d31;
+}

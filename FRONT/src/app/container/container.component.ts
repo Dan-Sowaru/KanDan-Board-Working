@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { COLUMNS } from 'src/app/models/columns';
+import { columns } from 'src/app/models/columns';
 import { APIService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { Card } from 'src/app/models/card.model';
@@ -11,7 +11,7 @@ import { Card } from 'src/app/models/card.model';
   styleUrls: ['./container.component.css'],
 })
 export class ContainerComponent implements OnInit {
-  columns = COLUMNS;
+  columns = columns;
   logedIn!: boolean;
 
   cards!: Card[];

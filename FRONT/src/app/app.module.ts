@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
+import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { ColumnComponent } from './container/column/column.component';
 import { CardComponent } from './container/column/card/card.component';
@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
+    HeaderComponent,
     ContainerComponent,
     ColumnComponent,
     CardComponent,
